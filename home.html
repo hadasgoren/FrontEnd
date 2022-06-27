@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>House of Carbs</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Start header -->
+    <div class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="home.html">
+                    <img id="logo" src="images/logoHOC.jpg" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-rs-food">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active" id="homePage"><a class="nav-link" href="home.html">Home</a></li>
+                        <li class="nav-item" id="menuPage"><a class="nav-link" href="menu.html">Menu</a></li>
+                        <li class="nav-item" id="loginPage"><a class="nav-link loginBtn" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                        <li class="nav-item" id="managePage"><a class="nav-link loginBtn" data-toggle="modal" data-target="#adminModal">Managment</a></li>
+                        <li class="nav-item" id="userPage" style="display:none;";>
+                            <select class="nav-item nav-link" name="user" id="logout" onchange="changeFunc(value);">
+                                <option value="" id="user"></option>
+                                <option value="logout">Logout</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+		<div class="container">
+			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					<div class="modal-header border-bottom-0">
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <div class="form-title text-center" id="login" style="display: block;">
+						<h4>Login</h4>
+					  <div class="d-flex flex-column text-center">
+						<form>
+						  <div class="form-group">
+							<input type="text" class="form-control" id="username" placeholder="Your name...">
+						  </div>
+						  <div class="form-group">
+							<input type="password" class="form-control" id="upassword" placeholder="Your password...">
+						  </div>
+						  <button type="button" class="btn btn-info btn-block btn-round" id="loginU">Login</button>
+						</form>
+						<div class="modal-footer d-flex justify-content-center">
+							<div class="signup-section">Not a member yet? <a href="javascript: showRegister();" class="text-info"> Sign Up</a>.</div>
+						</div>
+					  </div>
+					  </div>
+					  <div class="form-title text-center" id="register" style="display: none;">
+						<h4>Sign up</h4>
+						<form>
+							<div class="form-group">
+							<input type="text" class="form-control" id="nuser"placeholder="Your name...">
+							</div>
+							<div class="form-group">
+							<input type="password" class="form-control" id="password1" placeholder="password...">
+							</div>
+							<div class="form-group">
+							<input type="password" class="form-control" id="password2" placeholder="Repeat password...">
+							</div>
+							<button type="button" id="newuser" class="btn btn-info btn-block btn-round">Join</button>
+						</form>
+						<div class="modal-footer d-flex justify-content-center">
+							<div class="signup-section">Already a member? <a href="javascript: showLogin();" class="text-info"> Login</a>.</div>
+						</div>
+					</div>
+					</div>
+				  </div>
+				</div>
+            </div>
+                <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header border-bottom-0">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-title text-center" id="admin" style="display: block;">
+                                <h4>Login</h4>
+                                <div class="d-flex flex-column text-center">
+                                    <form>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="adminName"placeholder="Admin name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="apassword" placeholder="Admin password">
+                                    </div>
+                                    <button type="button" class="btn btn-info btn-block btn-round" id="loginA">Admin</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+		              </div>
+	                </div>
+                </div>
+            </div>
+        </div>
+    <!-- End header -->
+    <!-- Start Cover -->
+    <div class="container-fluid">
+        <div class="row">
+            <img id ="coverPic" src="images/restaurant.jpg" alt="" >
+                <div class="coverText">
+                    <h1 id="welcome"><b>Welcome To <br> House of Carbs</b></h1>
+                        <p id="welcomeParagraph">
+                            Made With Italian Love<br>We offer a wide range of Italian delicacy<br>Who doesn't like carbs?
+                        </p>
+                </div>
+        </div>
+    </div>
+    
+    <!-- End Cover -->   
+    
+    <!-- Start Contact info -->
+    <div class="contact-imfo-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-volume-control-phone"></i>
+                    <div class="overflow-hidden">
+                        <h4>Phone</h4>
+                        <p class="lead">
+                            052-578-3853
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-envelope"></i>
+                    <div class="overflow-hidden">
+                        <h4>Email</h4>
+                        <p class="lead">
+                            hadasgoren10@gmail.com
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-map-marker"></i>
+                    <div class="overflow-hidden">
+                        <h4>Location</h4>
+                        <p class="lead">
+                            Nahal Nekarot 3, Kfar Yona
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact info -->
+    <!-- Start Footer -->
+    <footer class="footer-area bg-f">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>About Us</h3>
+                    <p>House of Carbs is a new Italian restaurant.<br />It all began in July 2021 - our mission was to create a place that anyone can enjoy and leave happy and satisfied with a full stomach.<br />We offer a wide range of all Italian delicacy, and we have the best staff at your service. <br />Come visit us!</p>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Opening hours</h3>
+                    <p><span class="text-color">Sunday-Thursday :</span> 12:00 - 00:00</p>
+                    <p><span class="text-color">Friday :</span> 12:00 - 22:00</p>
+                    <p><span class="text-color">Saturday :</span> 17:00 - 01:00</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+    
+    <!-- ALL PLUGINS -->
+	<script src="js/login.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/managers.js"></script>
+</body>
+</html>
